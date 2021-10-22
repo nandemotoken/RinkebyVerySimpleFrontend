@@ -1,1 +1,1 @@
-
+const abi = []
