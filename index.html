@@ -10,6 +10,36 @@
 
     
     <script>
+        //const abi = の後ろに、ABIを貼り付けましょう
+        const abi = [
+	{
+		"inputs": [],
+		"name": "retrieve",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "num",
+				"type": "uint256"
+			}
+		],
+		"name": "store",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	}
+]
+        
         
         //ここに自分のコントラクトのアドレスを設定しましょう
         const contractaddress = "0x308BCF54F1A6ed8734fd8b594bd92A0EED3e8486";
@@ -18,14 +48,25 @@
         async function myfunc1(){
 
             //シンプルなサンプルコードです。基本的にはMetamaskのドキュメントを参照するとよいでしょう。
+            
+            //Metamaskを有効化しています
             await ethereum.enable();
             alert("function1");
+            
+            //自分のアドレスを取得しています
             provider = await new ethers.providers.Web3Provider(window.ethereum);
             signer = await provider.getSigner();
             useraddress = await signer.getAddress();
+            
+            //自分のアドレスを表示しています
             alert(useraddress);
+            
+            //ABIを使ってスマートコントラクトに接続しています
             mycontract = await new ethers.Contract( contractaddress , abi, signer );
-            alert(mycontract.retrieve())
+            //スマートコントラクトの値を待っています
+            myvalue = await mycontract.retrieve()
+            
+            alert(myvalue)
         }
     </script>
 
