@@ -14,8 +14,11 @@
         
         alert(`ここのJavaScriptが表示されています ${contractaddress}`)
         async function myfunc1(){
-            alert("function1")
-            await ethereum.enable()
+
+            //シンプルなサンプルコードです。基本的にはMetamaskのドキュメントを参照するとよいでしょう。
+            //
+            await ethereum.enable();
+            alert("function1");
             provider = await new ethers.providers.Web3Provider(window.ethereum);
             signer = await provider.getSigner();
             useraddress = await signer.getAddress();
