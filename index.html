@@ -18,6 +18,7 @@
             provider = await new ethers.providers.Web3Provider(window.ethereum);
             signer = await provider.getSigner();
             useraddress = await signer.getAddress();
+            alert(useraddress);
         }
     </script>
 
@@ -30,5 +31,6 @@
 </head>
 <body>
 This is sample page.
+<a href="javascript:myfunc1()"><img src="https://www.nandemotoken.com/assets/img/sugoi_round.png"></a>
 </body>
 </html>
