@@ -15,6 +15,7 @@
         alert(`ここのJavaScriptが表示されています ${contractaddress}`)
         async function myfunc1(){
             alert("function1")
+            await ethereum.enable()
             provider = await new ethers.providers.Web3Provider(window.ethereum);
             signer = await provider.getSigner();
             useraddress = await signer.getAddress();
